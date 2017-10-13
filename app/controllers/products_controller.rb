@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
     @products = Product.all    
   end
@@ -30,6 +30,15 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @product.destroy
+      redirect_to products_path, notice: "El producto fue eliminado con éxito"
+    else
+      redirect_to products_path, notice: "El producto no fue eliminado"
+    end
+  end
+
   private
   def set_product
     @product = Product.find(params[:id])
