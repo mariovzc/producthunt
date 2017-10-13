@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :products, except: [:edit, :update]
+  resources :products
 end
