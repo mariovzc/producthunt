@@ -13,17 +13,7 @@
       <div class="alert alert-info"><%= flash[:notice] %></div>
     <% end %>
 
-    
-    <% if signed_in? %>
-      <div>
-        hola 
-        <%= current_user.name %>
-        |
-        <%= link_to 'Salir', logout_path, method: :delete %>
-      </div>
-    <% end %>
-    
-
+    <%= render 'layouts/nav'%>
     <%= yield %>
   </body>
 </html>
